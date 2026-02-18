@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import MovieCard from '../moviecard';
+import MovieCard from '../favorite-movies';
 import './style.css';
 
 const TopMovies = ({ filterCtg, setFilterCtg, topMovies, setWatchList,watchList }) => {
@@ -12,9 +12,9 @@ const TopMovies = ({ filterCtg, setFilterCtg, topMovies, setWatchList,watchList 
     <section className='new-sec top-rated-sec' id='movies'>
       <div className='container'>
         <div className='section-title'>
-          <h5 className='sub-title'>ONLINE STREAMING</h5>
-          <h2 className='title'>Top Rated Movies</h2>
-          <p>This section showcases top-rated movies that are relevant to IT field learning and rendered in client-side JavaScript.</p>
+          <h5 className='sub-title'>ON GOING SERIES</h5>
+          <h2 className='title'>TRENDING SERIES</h2>
+          <p>This section shows trending series by server side rendering.</p>
         </div>
         <div className='btns-div categories-btns'>
           <button

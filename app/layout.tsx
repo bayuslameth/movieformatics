@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Movflx - Unlimited Movies, TV Shows & More",
+  title: "Movieformatics - Unlimited Movies, TV Shows & More",
   description: "Stream unlimited movies and TV shows with Movflx",
 };
 

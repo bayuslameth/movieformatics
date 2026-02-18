@@ -179,3 +179,81 @@ export async function getMovieById(id: string): Promise<Movie | null> {
   }
   return MOCK_MOVIES.find((movie) => movie.imdbID === id) || null;
 }
+
+// Tambah di lib/api.ts
+const MOCK_SERIES: Movie[] = [
+  {
+    imdbID: 'tt0944947',
+    Title: 'Game of Thrones',
+    Year: '2011–2019',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'tt0903747',
+    Title: 'Breaking Bad',
+    Year: '2008–2013',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDdmLWJjOTUtYjc2OGUwZjQ2YWIwXkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'tt4574334',
+    Title: 'Stranger Things',
+    Year: '2016–',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BN2ZmYjg1YmItNWQ4OC00YWM0LWE0ZDktYThjOTZiZjhhN2Q2XkEyXkFqcGdeQXVyNjgxNTQ3Mjk@._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'tt0386676',
+    Title: 'The Office',
+    Year: '2005–2013',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMDNkZjNjNDMtMDg2Yy00MWRhLWJjNWEtNTI0NzdlNzYxNTVlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'tt0108778',
+    Title: 'Friends',
+    Year: '1994–2004',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BNDVkYjU0MzctMWRmZi00NTkxLTgwZWEtOWVhYjZkYjk3YzFlXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'tt2442560',
+    Title: 'Peaky Blinders',
+    Year: '2013–2022',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMTkxNTU3NDk3Ml5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'tt1844624',
+    Title: 'American Horror Story',
+    Year: '2011–',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BNjMxODM1OTk3Nl5BMl5BanBnXkFtZTgwMzA4MDc0MjE@._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'tt2306299',
+    Title: 'Vikings',
+    Year: '2013–2020',
+    Type: 'series',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BODk4ZjU0NDUtYjdlOS00OTljLTgwZTUtYjkyZjk1NzExZGIzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg',
+  },
+];
+
+export async function getSeries(): Promise<Movie[]> {
+  if (OMDB_API_KEY) {
+    try {
+      const res = await fetch(
+        `${OMDB_URL}/?apikey=${OMDB_API_KEY}&s=series&type=series`,
+        {
+          next: { revalidate: 3600 }, // cache SSR 1 jam
+        }
+      );
+      const data = await res.json();
+      if (data.Response !== 'False' && data.Search?.length) {
+        return data.Search;
+      }
+    } catch {}
+  }
+  return MOCK_SERIES; // fallback dummy
+}

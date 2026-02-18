@@ -78,7 +78,7 @@ const Footer = () => {
                 href='https://github.com/GSG-G11/Movflx'
                 target='_blank'
                 rel='noreferrer'>
-                Movflx
+                Movieformatics
               </a>
             </p>
           </div>

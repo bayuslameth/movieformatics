@@ -1,10 +1,13 @@
-'use client';
+import Navbar from '@/components/navbar';
+import TrendingSeries from '@/components/topmovies/TrendingSeries';
+import Footer from '@/components/footer';
 
-export default function FavouritesPage() {
+export default function Page() {
   return (
-    <div>
-      <h1>Favourites Page</h1>
-      <p>Masih kosong</p>
-    </div>
+    <>
+      <Navbar />
+      <TrendingSeries />
+      <Footer />
+    </>
   );
 }

@@ -61,7 +61,7 @@ const Navbar = ({ setShowSearch, watchList }) => {
         <div className='row'>
           <div className='navbar-brand'>
             <Link className='navbar-item link' href='/'>
-              <Image src='/logo.png' alt='Movflx' className='logo' style={{ marginLeft: "10px" }} width={40} height={40} />
+              <Image src='/logo.png' alt='Movieformatics' className='logo' style={{ marginLeft: "10px" }} width={40} height={40} />
             </Link>
           </div>
           <ul className={responsive ? (showSide ? 'navbar-menu sidebar show' : 'navbar-menu sidebar') : 'navbar-menu'}>
@@ -88,14 +88,11 @@ const Navbar = ({ setShowSearch, watchList }) => {
             </li>
             <li className="navbar-item">
               <Link
-                className="navbar-link favourites"
+                className="navbar-link btn"
                 href="/favourites"
                 onClick={() => setShowSide(false)}
               >
                 Favourites
-                {watchList.length > 0 && (
-                  <span className="num">{watchList.length}</span>
-                )}
               </Link>
             </li>
             <li className="navbar-item">
