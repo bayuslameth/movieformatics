@@ -31,32 +31,6 @@ const MovieCard = ({ movie, setWatchList, watchList }) => {
     <div className='single-movie'>
       <div className='movie-poster'>
         <img src={movie.Poster} alt='movie-poster' />
-        <ul className='overlay-btns'>
-          {watchListIds.includes(movie.imdbID) ? 
-            (<li>
-              <button
-                className='btn watch-btn'
-                onClick={() => deleteFromWatchList(movie.imdbID)}>
-                Delete From Watch
-              </button>
-            </li>
-            )
-            :
-            (
-            <li>
-              <button
-                className='btn watch-btn'
-                onClick={() => addToFavourite(movie)}>
-                Watch Later
-              </button>
-            </li>
-          )}
-          <li>
-            <Link className='btn details-btn' href={`/movie/${movie.imdbID}`}>
-              Details
-            </Link>
-          </li>
-        </ul>
       </div>
       <div className='movie-content'>
         <div className='top row'>

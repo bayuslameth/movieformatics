@@ -10,17 +10,127 @@ export interface Movie {
   Poster: string;
   Genre?: string;
 }
-
-// Mock data when no API key (so app runs out of the box)
 const MOCK_MOVIES: Movie[] = [
-  { imdbID: '1', Title: 'Inception', Year: '2010', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg' },
-  { imdbID: '2', Title: 'The Dark Knight', Year: '2008', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg' },
-  { imdbID: '3', Title: 'Interstellar', Year: '2014', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg' },
-  { imdbID: '4', Title: 'The Shawshank Redemption', Year: '1994', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNkLWJiNDEtZDVmZjk2YjUwZEFhXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg' },
-  { imdbID: '5', Title: 'Pulp Fiction', Year: '1994', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzBjMjQ3YzhjODlmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg' },
-  { imdbID: '6', Title: 'Forrest Gump', Year: '1994', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg' },
-  { imdbID: '7', Title: 'The Matrix', Year: '1999', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg' },
-  { imdbID: '8', Title: 'Gladiator', Year: '2000', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg' },
+  {
+    imdbID: '1',
+    Title: 'Inception',
+    Year: '2010',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '2',
+    Title: 'The Dark Knight',
+    Year: '2008',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '3',
+    Title: 'Interstellar',
+    Year: '2014',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '6',
+    Title: 'Forrest Gump',
+    Year: '1994',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '7',
+    Title: 'The Matrix',
+    Year: '1999',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '8',
+    Title: 'Gladiator',
+    Year: '2000',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg'
+  },
+  // Yang sudah ada dari sebelumnya
+  {
+    imdbID: '9',
+    Title: 'The Godfather',
+    Year: '1972',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '11',
+    Title: '12 Angry Men',
+    Year: '1957',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '13',
+    Title: 'The Lord of the Rings: The Return of the King',
+    Year: '2003',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '14',
+    Title: 'The Good, the Bad and the Ugly',
+    Year: '1966',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '15',
+    Title: 'Fight Club',
+    Year: '1999',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '16',
+    Title: 'The Lord of the Rings: The Fellowship of the Ring',
+    Year: '2001',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '18',
+    Title: 'The Empire Strikes Back',
+    Year: '1980',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '26',
+    Title: 'The Lord of the Rings: The Two Towers',
+    Year: '2002',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '32',
+    Title: 'City Lights',
+    Year: '1931',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BY2I4MmM1N2EtM2YzOS00OWUzLTkzYzctNDc5NDg2N2IyODJmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg'
+  },
+  {
+    imdbID: '33',
+    Title: 'City of God',
+    Year: '2002',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMjA4ODQ3ODkzNV5BMl5BanBnXkFtZTYwOTc4NDI3._V1_SX300.jpg'
+  },
+  {
+    imdbID: '36',
+    Title: 'Saving Private Ryan',
+    Year: '1998',
+    Type: 'movie',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg'
+  },
 ];
 
 export async function getMovies(search?: string): Promise<Movie[]> {

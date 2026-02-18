@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import './style.css';
 
-const Navbar = ({setShowSearch, watchList}) => {
+const Navbar = ({ setShowSearch, watchList }) => {
   const [sticky, setSticky] = useState(false);
   const [responsive, setResponsive] = useState(false);
   const [showSide, setShowSide] = useState(false);
@@ -41,7 +41,7 @@ const Navbar = ({setShowSearch, watchList}) => {
   });
 
   useEffect(() => {
-    if(showSide) {
+    if (showSide) {
       document.body.style = 'overflow: hidden';
     }
 
@@ -61,20 +61,20 @@ const Navbar = ({setShowSearch, watchList}) => {
         <div className='row'>
           <div className='navbar-brand'>
             <Link className='navbar-item link' href='/'>
-              <Image src='/logo.png' alt='Movflx' className='logo' style={{marginLeft: "10px"}} width={40} height={40} />
+              <Image src='/logo.png' alt='Movflx' className='logo' style={{ marginLeft: "10px" }} width={40} height={40} />
             </Link>
           </div>
           <ul className={responsive ? (showSide ? 'navbar-menu sidebar show' : 'navbar-menu sidebar') : 'navbar-menu'}>
             {
               responsive
-              ? 
-              (
-                <button className="btn close-btn" onClick={() => setShowSide((prev) => false)}>
-                  <i className="ri-close-line"></i>
-                </button>
-              )
-              :
-              null
+                ?
+                (
+                  <button className="btn close-btn" onClick={() => setShowSide((prev) => false)}>
+                    <i className="ri-close-line"></i>
+                  </button>
+                )
+                :
+                null
             }
             <li className='navbar-item'>
               <Link className='navbar-link' href='/' onClick={() => setShowSide((prev) => false)}>
@@ -86,32 +86,35 @@ const Navbar = ({setShowSearch, watchList}) => {
                 Movies
               </Link>
             </li>
-            <li className='navbar-item'>
-              <Link className='navbar-link favourites' href='/favourites' onClick={() => setShowSide((prev) => false)}>
+            <li className="navbar-item">
+              <Link
+                className="navbar-link favourites"
+                href="/favourites"
+                onClick={() => setShowSide(false)}
+              >
                 Favourites
-                {
-                  watchList.length ? <span className='num'>{watchList.length}</span> : null
-                }
+                {watchList.length > 0 && (
+                  <span className="num">{watchList.length}</span>
+                )}
               </Link>
             </li>
-            <li className='navbar-item'>
-              <Link className='navbar-link' href='/#Subscribe' onClick={() => setShowSide((prev) => false)}>
-                Subscribe
+            <li className="navbar-item">
+              <Link
+                className="navbar-link btn"
+                href="/bookmarks"
+                onClick={() => setShowSide(false)}
+              >
+                Bookmarks
               </Link>
-            </li>
-            <li className='navbar-item'>
-              <button className='navbar-link btn' onClick={() => handleShowSearch()}>
-                Search
-              </button>
             </li>
           </ul>
-            {responsive ? (
-              <div className='right-btns'>
-                <button className='btn menu-toggle' onClick={() => setShowSide((prev) => true)}>
-                  <i className='ri-menu-3-line'></i>
-                </button>
-              </div>
-            ) : null}
+          {responsive ? (
+            <div className='right-btns'>
+              <button className='btn menu-toggle' onClick={() => setShowSide((prev) => true)}>
+                <i className='ri-menu-3-line'></i>
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
     </nav>
