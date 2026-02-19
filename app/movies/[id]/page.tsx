@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import MovieDetails from '@/components/moviedetails';
-import RenderingNote from '@/components/RenderingNote';
 import { getMovieById } from '../../../lib/api';
 
 type MovieDetailPageProps = {
