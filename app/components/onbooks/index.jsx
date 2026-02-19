@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import MovieCard from '../favorite-movies';
+import MovieCard from '../bookmarks';
 import './style.css';
 
 const TopMovies = ({ filterCtg, setFilterCtg, topMovies, setWatchList,watchList }) => {
@@ -14,7 +14,7 @@ const TopMovies = ({ filterCtg, setFilterCtg, topMovies, setWatchList,watchList 
         <div className='section-title'>
           <h5 className='sub-title'>Your Bookmarks</h5>
           <h2 className='title'>Bookmarked Movies</h2>
-          <p>This section shows your bookmarked movies by SSG.</p>
+          <p>This section shows your bookmarked movies by SSG rendering techniques.</p>
         </div>
         <div className='btns-div categories-btns'>
           <button
