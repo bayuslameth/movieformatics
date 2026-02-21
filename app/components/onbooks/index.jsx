@@ -4,8 +4,13 @@ import MovieCard from '../bookmarks';
 import './style.css';
 
 const TopMovies = ({ filterCtg, setFilterCtg, topMovies, setWatchList,watchList }) => {
+  const hasFilters = typeof setFilterCtg === 'function';
+  const safeWatchList = Array.isArray(watchList) ? watchList : [];
+
   const handleFilterCtg = (e) => {
-    setFilterCtg(e.target.textContent);
+    if (hasFilters) {
+      setFilterCtg(e.target.textContent);
+    }
   };
 
   return (
@@ -16,7 +21,7 @@ const TopMovies = ({ filterCtg, setFilterCtg, topMovies, setWatchList,watchList 
           <h2 className='title'>Bookmarked Movies</h2>
           <p>This section shows your bookmarked movies by SSG rendering techniques.</p>
         </div>
-        <div className='btns-div categories-btns'>
+        {hasFilters ? <div className='btns-div categories-btns'>
           <button
             className={
               filterCtg === 'Action'
@@ -53,13 +58,13 @@ const TopMovies = ({ filterCtg, setFilterCtg, topMovies, setWatchList,watchList 
             onClick={(e) => handleFilterCtg(e)}>
             Horror
           </button>
-        </div>
+        </div> : null}
         <div className='row movies-grid'>
           {
           topMovies
           ?
           topMovies.map(movie => (
-            <MovieCard movie={movie} key={movie.imdbID} setWatchList={setWatchList} watchList={watchList} />
+            <MovieCard movie={movie} key={movie.imdbID} setWatchList={setWatchList} watchList={safeWatchList} />
           ))
           :
           null

@@ -1,13 +1,7 @@
-import Navbar from '@/components/navbar';
-import TrendingSeries from '@/components/topmovies/TrendingSeries';
-import Footer from '@/components/footer';
+import Bookmarks from '@/components/Bookmarks';
+
+export const dynamic = 'force-static';
 
 export default function Page() {
-  return (
-    <>
-      <Navbar />
-      <TrendingSeries />
-      <Footer />
-    </>
-  );
+  return <Bookmarks />;
 }

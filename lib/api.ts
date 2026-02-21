@@ -256,3 +256,39 @@ export async function getSeries(): Promise<Movie[]> {
   }
   return MOCK_SERIES; // fallback dummy
 }
+
+export const MOCK_BOOKMARKS: Movie[] = [
+  ...MOCK_MOVIES,
+  {
+    imdbID: 'anime-1',
+    Title: 'Your Name',
+    Year: '2016',
+    Type: 'anime',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BMjI5YjVkN2UtYTVmNi00ZWQwLTg5NGEtN2E4YjQ2Zjk0NmI5XkEyXkFqcGdeQXVyMTQyMTMwOTk0._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'anime-2',
+    Title: 'Spirited Away',
+    Year: '2001',
+    Type: 'anime',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BYTY5N2MwOTEtZTBjZS00M2YxLWI4YzUtNTllZDY1YjU0MzY2XkEyXkFqcGdeQXVyMTAyOTE2ODg0._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'anime-3',
+    Title: 'Demon Slayer: Mugen Train',
+    Year: '2020',
+    Type: 'anime',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BZjhkZGYzYjQtZGMxYy00ZWU4LWI4ZTYtMjFmZmJkM2YxN2MzXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg',
+  },
+  {
+    imdbID: 'anime-4',
+    Title: 'Jujutsu Kaisen 0',
+    Year: '2021',
+    Type: 'anime',
+    Poster: 'https://m.media-amazon.com/images/M/MV5BNWM4Mzg4Y2UtZTJmOC00YjY2LTkzNjktN2FjMjQ4YzJhM2U0XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg',
+  },
+];
+
+export async function getBookmarkMovies(): Promise<Movie[]> {
+  return MOCK_BOOKMARKS;
+}
